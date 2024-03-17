@@ -1,0 +1,23 @@
+﻿@page "/counter2"
+@rendermode InteractiveWebAssembly
+
+<PageTitle>Counter 2</PageTitle>
+
+<h3>InteractiveWebAssembly 2</h3>
+
+<AuthorizeView>
+    <Authorized>
+        <p>こんにちは @context.User.Identity!.Name さん。InteractiveWebAssembly のページでのカウンターページを楽しんでください。</p>
+        <p>Current count: @currentCount</p>
+        <button @onclick="IncrementCount">インクリメント</button>
+    </Authorized>
+    <NotAuthorized>
+        認証されてませんよ？
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private int currentCount = 0;
+    private void IncrementCount() => currentCount++;
+}
+
